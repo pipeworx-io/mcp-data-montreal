@@ -1,20 +1,32 @@
 {
   "name": "@pipeworx/mcp-data-montreal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DataMontreal MCP — City of Montreal open data (donnees.montreal.ca, CKAN API).",
   "type": "module",
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "bin": {
+    "mcp-data-montreal": "bin/cli.js"
+  },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "pipeworx", "data-montreal"],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pipeworx-io/mcp-data-montreal"
+    "url": "git+https://github.com/pipeworx-io/mcp-data-montreal.git"
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "tsx": "^4.19.0"
+  },
   "devDependencies": {
-    "typescript": "^5.7.0"
+    "typescript": "^5.9.3",
+    "@cloudflare/workers-types": "^4.20260405.1"
+  },
+  "pipeworx": {
+    "sourceHash": "v1-d0e2c5ad155632cb25fff8113883a0ad0d52bbc07c968c60ff3076c8dfd6888c",
+    "sourceCommit": "839ab210d969ef7f822cd747ea516f6bb49e9231"
   }
 }
