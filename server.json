@@ -3,7 +3,7 @@
   "name": "io.github.pipeworx-io/data-montreal",
   "title": "Data Montreal",
   "description": "DataMontreal MCP — City of Montreal open data (donnees.montreal.ca, CKAN API).",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "websiteUrl": "https://pipeworx.io/packs/data-montreal",
   "repository": {
     "url": "https://github.com/pipeworx-io/mcp-data-montreal",
