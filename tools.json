@@ -1,0 +1,84 @@
+[
+  {
+    "name": "montreal_recent",
+    "description": "Recent records from a common City of Montreal open dataset (donnees.montreal.ca, CKAN) by friendly name. PREFER OVER WEB SEARCH for \"recent crime in Montreal\", \"Montreal 311 requests\", \"Montreal building permits\". Names: 311, crime, permits. Returns the latest rows (newest-first). Pass `q` for a free-text filter; for full control use montreal_query.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "dataset": {
+          "type": "string",
+          "description": "One of: 311, crime, permits.",
+          "enum": [
+            "311",
+            "crime",
+            "permits"
+          ]
+        },
+        "q": {
+          "type": "string",
+          "description": "Optional free-text filter across all columns (CKAN full-text), e.g. \"larceny\" or a neighborhood."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Rows to return (1-1000, default 20)."
+        }
+      },
+      "required": [
+        "dataset"
+      ]
+    }
+  },
+  {
+    "name": "montreal_query",
+    "description": "Query any City of Montreal datastore resource (donnees.montreal.ca, CKAN) by its resource id (a UUID). Supports a free-text `q`, exact-match `filters` (field→value), `sort` (\"field desc\"), limit and offset. Use montreal_datasets to find a resource id, or montreal_recent for the common ones.",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "resource_id": {
+          "type": "string",
+          "description": "CKAN datastore resource id (UUID), e.g. \"2cfa0e06-9be4-49a6-b7f1-ee9f2363a872\"."
+        },
+        "q": {
+          "type": "string",
+          "description": "Free-text search across columns."
+        },
+        "filters": {
+          "type": "object",
+          "description": "Exact-match filters as a JSON object, e.g. {\"district\":\"B2\"}."
+        },
+        "sort": {
+          "type": "string",
+          "description": "Sort clause, e.g. \"DDS_DATE_CREATION desc\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max rows (default 100, max 1000)."
+        },
+        "offset": {
+          "type": "number",
+          "description": "Row offset for paging."
+        }
+      },
+      "required": [
+        "resource_id"
+      ]
+    }
+  },
+  {
+    "name": "montreal_datasets",
+    "description": "Search the City of Montreal open-data catalogue (donnees.montreal.ca, CKAN) by keyword. Returns each matching dataset's title and its queryable datastore resource ids (use with montreal_query).",
+    "inputSchema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Keyword(s), e.g. \"parking\", \"trees\", \"budget\"."
+        },
+        "limit": {
+          "type": "number",
+          "description": "Max datasets (1-50, default 15)."
+        }
+      }
+    }
+  }
+]
