@@ -1,6 +1,6 @@
 {
   "name": "@pipeworx/mcp-data-montreal",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "DataMontreal MCP — City of Montreal open data (donnees.montreal.ca, CKAN API).",
   "type": "module",
   "main": "lib/index.js",
@@ -27,7 +27,7 @@
     "mode": "gateway",
     "slug": "data-montreal",
     "gatewaySlug": "data-montreal",
-    "sourceHash": "v1-73378faab38847871d7139cc18473d3b26aee1291a4d77675ddf34c28db8a4d3",
-    "sourceCommit": "0b3faaa4d85299a961dd86dea75a0f0e1dad280c"
+    "sourceHash": "v1-b05496534186fd8d5b70e56a937217d229b5ae010c5f5c323d10a5bb6bae5754",
+    "sourceCommit": "5ce1a05186d46479e23865c66bdb8579d8de445e"
   }
 }
